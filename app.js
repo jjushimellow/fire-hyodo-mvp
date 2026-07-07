@@ -4,8 +4,8 @@ const countries = [
         id: 'country-001',
         name: '다낭',
         countryLabel: '베트남',
-        thumbnailImage: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=600&q=80',
-        landmarkImage: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=1200&q=80',
+        thumbnailImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Da_Nang_Skyline_2.jpg/800px-Da_Nang_Skyline_2.jpg',
+        landmarkImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Da_Nang_Skyline_2.jpg/1200px-Da_Nang_Skyline_2.jpg',
         difficultyLevel: 1, // 1: Easy, 2: Medium, 3: Hard
         rankScore: 4.8,
         tags: ['온화한날씨', '한식당많음'],
@@ -16,16 +16,16 @@ const countries = [
             { text: "날씨가 덥긴 했지만 리조트 휴양하기엔 최고였습니다.", type: "left" }
         ],
         attractions: [
-            { name: '바나힐', img: 'https://images.unsplash.com/photo-1596710113146-5ec5ee11f010?w=300&q=80' },
-            { name: '미케 비치', img: 'https://images.unsplash.com/photo-1583417637813-f938f3258fa6?w=300&q=80' }
+            { name: '바나힐', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Ba_Na_Hills_French_Village.jpg/640px-Ba_Na_Hills_French_Village.jpg' },
+            { name: '미케 비치', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Da_Nang_Beach.jpg/640px-Da_Nang_Beach.jpg' }
         ]
     },
     {
         id: 'country-002',
         name: '삿포로',
         countryLabel: '일본',
-        thumbnailImage: 'https://images.unsplash.com/photo-1548813318-c3b1a2b4a4c9?w=600&q=80',
-        landmarkImage: 'https://images.unsplash.com/photo-1548813318-c3b1a2b4a4c9?w=1200&q=80',
+        thumbnailImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Sapporo_TV_Tower_and_Odori_Park_2019.jpg/800px-Sapporo_TV_Tower_and_Odori_Park_2019.jpg',
+        landmarkImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Sapporo_TV_Tower_and_Odori_Park_2019.jpg/1200px-Sapporo_TV_Tower_and_Odori_Park_2019.jpg',
         difficultyLevel: 2,
         rankScore: 4.6,
         tags: ['자연경관', '온천'],
@@ -35,16 +35,16 @@ const countries = [
             { text: "음식이 깔끔하고 입맛에 잘 맞으셨어요.", type: "right" }
         ],
         attractions: [
-            { name: '오도리 공원', img: 'https://images.unsplash.com/photo-1610488663806-2580a13e5513?w=300&q=80' },
-            { name: '노보리베츠 온천', img: 'https://images.unsplash.com/photo-1606117282865-9b5cc29cbf56?w=300&q=80' }
+            { name: '오도리 공원', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Odori_Park_Sapporo_01.jpg/640px-Odori_Park_Sapporo_01.jpg' },
+            { name: '노보리베츠 온천', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Jigokudani_%28Hell_Valley%29_Noboribetsu_Hokkaido.jpg/640px-Jigokudani_%28Hell_Valley%29_Noboribetsu_Hokkaido.jpg' }
         ]
     },
     {
         id: 'country-003',
         name: '치앙마이',
         countryLabel: '태국',
-        thumbnailImage: 'https://images.unsplash.com/photo-1598935888738-cd2635e9fcae?w=600&q=80',
-        landmarkImage: 'https://images.unsplash.com/photo-1598935888738-cd2635e9fcae?w=1200&q=80',
+        thumbnailImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Wat_Phra_That_Doi_Suthep_02.jpg/800px-Wat_Phra_That_Doi_Suthep_02.jpg',
+        landmarkImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Wat_Phra_That_Doi_Suthep_02.jpg/1200px-Wat_Phra_That_Doi_Suthep_02.jpg',
         difficultyLevel: 1,
         rankScore: 4.5,
         tags: ['느긋한여행', '사찰'],
@@ -54,8 +54,8 @@ const countries = [
             { text: "대중교통이 조금 불편해서 택시 투어를 이용했어요.", type: "right" }
         ],
         attractions: [
-            { name: '도이수텝', img: 'https://images.unsplash.com/photo-1580977276076-ac4cb330e71b?w=300&q=80' },
-            { name: '올드타운', img: 'https://images.unsplash.com/photo-1563810145269-074903de09f4?w=300&q=80' }
+            { name: '도이수텝', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Wat_Phra_That_Doi_Suthep_%281%29.jpg/640px-Wat_Phra_That_Doi_Suthep_%281%29.jpg' },
+            { name: '올드타운', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Chiang_Mai_Old_City_Moat.jpg/640px-Chiang_Mai_Old_City_Moat.jpg' }
         ]
     }
 ];
