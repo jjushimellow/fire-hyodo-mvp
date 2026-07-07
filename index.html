@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fire Hyodo - 효도 여행 MVP</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Main Page -->
+        <div id="home-page" class="page active">
+            <!-- Header -->
+            <header class="header">
+                <h1 class="text-xl font-bold" style="background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">✈️ Fire Hyodo</h1>
+                <button class="btn-icon material-icons">notifications_none</button>
+            </header>
+
+            <!-- Recommended Section -->
+            <div class="section-title" style="margin-top: var(--spacing-4);">
+                <h2 class="text-lg">추천 여행지 🐢</h2>
+            </div>
+            <div class="horizontal-scroll" id="recommended-container">
+                <!-- Cards will be injected by JS -->
+            </div>
+
+            <!-- MBTI Banner -->
+            <div class="glass-card mbti-banner" style="margin-top: var(--spacing-4);">
+                <div class="mbti-content">
+                    <div class="mbti-text">
+                        <h3 class="text-lg font-bold">어디로 갈지 모르겠다면?</h3>
+                        <p class="text-sm text-secondary">가족 MBTI를 통해 맞는 일정을 추천받아보세요 👨‍👩‍👧‍👦</p>
+                    </div>
+                    <span class="material-icons text-3xl" style="color: var(--accent-color);">psychology_alt</span>
+                </div>
+            </div>
+
+            <!-- Popular Ranking Section -->
+            <div class="section-title" style="margin-top: var(--spacing-6);">
+                <h2 class="text-lg">현재 가장 인기있는 효도 여행 🏆</h2>
+            </div>
+            <div class="ranking-list" id="ranking-container">
+                <!-- Ranking items will be injected by JS -->
+            </div>
+        </div>
+
+        <!-- Country Detail Page -->
+        <div id="detail-page" class="page">
+            <div class="detail-hero">
+                <img id="detail-img" src="" alt="Landmark" class="detail-hero-img">
+                <div class="detail-hero-overlay">
+                    <button class="btn-icon back-btn" onclick="goHome()">
+                        <span class="material-icons text-primary">arrow_back</span>
+                    </button>
+                    <div>
+                        <h1 id="detail-title" class="text-3xl" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);"></h1>
+                        <p id="detail-subtitle" class="text-md text-secondary"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-content">
+                <!-- AI Difficulty Section -->
+                <div class="glass-card">
+                    <h3 class="text-md font-bold" style="margin-bottom: var(--spacing-4); display: flex; align-items: center; gap: 8px;">
+                        <span class="material-icons text-accent">smart_toy</span> AI 추천 난이도 리포트
+                    </h3>
+                    
+                    <div class="stat-row">
+                        <div class="stat-icon"><span class="material-icons">directions_bus</span></div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                                <span class="text-sm font-medium">이동수단 (Transport)</span>
+                                <span class="text-sm font-bold" id="stat-transport-text"></span>
+                            </div>
+                            <div class="stat-bar-bg"><div class="stat-bar-fill" id="stat-transport-bar"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-icon"><span class="material-icons">restaurant</span></div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                                <span class="text-sm font-medium">음식 (Food)</span>
+                                <span class="text-sm font-bold" id="stat-food-text"></span>
+                            </div>
+                            <div class="stat-bar-bg"><div class="stat-bar-fill" id="stat-food-bar"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-icon"><span class="material-icons">health_and_safety</span></div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                                <span class="text-sm font-medium">안전 (Safety)</span>
+                                <span class="text-sm font-bold" id="stat-safety-text"></span>
+                            </div>
+                            <div class="stat-bar-bg"><div class="stat-bar-fill" id="stat-safety-bar"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Comments Section -->
+                <div>
+                    <h3 class="text-md font-bold" style="margin-bottom: var(--spacing-3);">유저 생생 후기 💬</h3>
+                    <div class="comments-container" id="comments-container">
+                        <!-- Comments injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Attractions -->
+                <div>
+                    <h3 class="text-md font-bold" style="margin-bottom: var(--spacing-3);">추천 명소 📸</h3>
+                    <div class="attraction-grid" id="attractions-container">
+                        <!-- Attractions injected by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sticky CTA -->
+            <div class="sticky-bottom">
+                <button class="btn btn-primary" style="font-size: var(--font-size-lg); padding: var(--spacing-4);">일정 추천을 받으시겠습니까?</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
