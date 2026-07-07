@@ -4,8 +4,8 @@ const countries = [
         id: 'country-001',
         name: '다낭',
         countryLabel: '베트남',
-        thumbnailImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Da_Nang_Skyline_2.jpg/800px-Da_Nang_Skyline_2.jpg',
-        landmarkImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Da_Nang_Skyline_2.jpg/1200px-Da_Nang_Skyline_2.jpg',
+        thumbnailImage: 'https://picsum.photos/id/13/600/400',
+        landmarkImage: 'https://picsum.photos/id/13/1200/800',
         difficultyLevel: 1, // 1: Easy, 2: Medium, 3: Hard
         rankScore: 4.8,
         tags: ['온화한날씨', '한식당많음'],
@@ -16,16 +16,16 @@ const countries = [
             { text: "날씨가 덥긴 했지만 리조트 휴양하기엔 최고였습니다.", type: "left" }
         ],
         attractions: [
-            { name: '바나힐', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Ba_Na_Hills_French_Village.jpg/640px-Ba_Na_Hills_French_Village.jpg' },
-            { name: '미케 비치', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Da_Nang_Beach.jpg/640px-Da_Nang_Beach.jpg' }
+            { name: '바나힐', img: 'https://picsum.photos/id/12/600/400' },
+            { name: '미케 비치', img: 'https://picsum.photos/id/14/600/400' }
         ]
     },
     {
         id: 'country-002',
         name: '삿포로',
         countryLabel: '일본',
-        thumbnailImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Sapporo_TV_Tower_and_Odori_Park_2019.jpg/800px-Sapporo_TV_Tower_and_Odori_Park_2019.jpg',
-        landmarkImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Sapporo_TV_Tower_and_Odori_Park_2019.jpg/1200px-Sapporo_TV_Tower_and_Odori_Park_2019.jpg',
+        thumbnailImage: 'https://picsum.photos/id/28/600/400',
+        landmarkImage: 'https://picsum.photos/id/28/1200/800',
         difficultyLevel: 2,
         rankScore: 4.6,
         tags: ['자연경관', '온천'],
@@ -35,16 +35,16 @@ const countries = [
             { text: "음식이 깔끔하고 입맛에 잘 맞으셨어요.", type: "right" }
         ],
         attractions: [
-            { name: '오도리 공원', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Odori_Park_Sapporo_01.jpg/640px-Odori_Park_Sapporo_01.jpg' },
-            { name: '노보리베츠 온천', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Jigokudani_%28Hell_Valley%29_Noboribetsu_Hokkaido.jpg/640px-Jigokudani_%28Hell_Valley%29_Noboribetsu_Hokkaido.jpg' }
+            { name: '오도리 공원', img: 'https://picsum.photos/id/29/600/400' },
+            { name: '노보리베츠 온천', img: 'https://picsum.photos/id/10/600/400' }
         ]
     },
     {
         id: 'country-003',
         name: '치앙마이',
         countryLabel: '태국',
-        thumbnailImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Wat_Phra_That_Doi_Suthep_02.jpg/800px-Wat_Phra_That_Doi_Suthep_02.jpg',
-        landmarkImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Wat_Phra_That_Doi_Suthep_02.jpg/1200px-Wat_Phra_That_Doi_Suthep_02.jpg',
+        thumbnailImage: 'https://picsum.photos/id/15/600/400',
+        landmarkImage: 'https://picsum.photos/id/15/1200/800',
         difficultyLevel: 1,
         rankScore: 4.5,
         tags: ['느긋한여행', '사찰'],
@@ -54,8 +54,8 @@ const countries = [
             { text: "대중교통이 조금 불편해서 택시 투어를 이용했어요.", type: "right" }
         ],
         attractions: [
-            { name: '도이수텝', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Wat_Phra_That_Doi_Suthep_%281%29.jpg/640px-Wat_Phra_That_Doi_Suthep_%281%29.jpg' },
-            { name: '올드타운', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Chiang_Mai_Old_City_Moat.jpg/640px-Chiang_Mai_Old_City_Moat.jpg' }
+            { name: '도이수텝', img: 'https://picsum.photos/id/16/600/400' },
+            { name: '올드타운', img: 'https://picsum.photos/id/17/600/400' }
         ]
     }
 ];
