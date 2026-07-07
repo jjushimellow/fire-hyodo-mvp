@@ -88,7 +88,16 @@ function renderHome() {
     countries.forEach(country => {
         const card = document.createElement('div');
         card.className = 'glass-card country-card';
-        card.onclick = () => openDetail(country.id);
+        // Use mousedown/mouseup to detect drag vs click
+        let startX, startY;
+        card.onmousedown = (e) => { startX = e.pageX; startY = e.pageY; };
+        card.onmouseup = (e) => {
+            const diffX = Math.abs(e.pageX - startX);
+            const diffY = Math.abs(e.pageY - startY);
+            if (diffX < 5 && diffY < 5) {
+                openDetail(country.id);
+            }
+        };
         
         card.innerHTML = `
             <img src="${country.thumbnailImage}" alt="${country.name}" class="country-image">
@@ -129,6 +138,30 @@ function renderHome() {
             <span class="material-icons text-secondary">chevron_right</span>
         `;
         rankingContainer.appendChild(item);
+    });
+
+    // Add drag-to-scroll for desktop users
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    
+    recommendedContainer.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - recommendedContainer.offsetLeft;
+        scrollLeft = recommendedContainer.scrollLeft;
+    });
+    recommendedContainer.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+    recommendedContainer.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+    recommendedContainer.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - recommendedContainer.offsetLeft;
+        const walk = (x - startX) * 2; // scroll-fast
+        recommendedContainer.scrollLeft = scrollLeft - walk;
     });
 }
 
