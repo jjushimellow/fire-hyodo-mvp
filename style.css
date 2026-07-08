@@ -251,28 +251,24 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
   justify-content: space-between;
 }
 
+.section-title > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 /* Horizontal Scroll List */
 .horizontal-scroll {
-  display: flex;
-  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   padding: 0 var(--spacing-4) var(--spacing-4);
   gap: var(--spacing-4);
-  scroll-snap-type: x mandatory;
-  scrollbar-width: auto; /* Firefox */
-}
-.horizontal-scroll::-webkit-scrollbar {
-  height: 6px;
-}
-.horizontal-scroll::-webkit-scrollbar-thumb {
-  background: var(--surface-border);
-  border-radius: var(--radius-full);
+  width: 100%;
 }
 
 .country-card {
-  min-width: 200px;
-  max-width: 240px;
-  flex: 0 0 auto;
-  scroll-snap-align: start;
+  flex: 1;
+  width: 100%;
   cursor: pointer;
   padding: 0;
   overflow: hidden;
@@ -571,6 +567,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
 /* Adjust page padding for nav */
 #home-page {
   padding-bottom: 70px;
+  overflow-x: hidden;
 }
 
 #detail-page {
