@@ -1,20 +1,23 @@
 :root {
-  /* Colors */
-  --bg-color: #0f172a;
-  --surface-color: rgba(255, 255, 255, 0.05);
-  --surface-hover: rgba(255, 255, 255, 0.1);
-  --surface-border: rgba(255, 255, 255, 0.1);
+  /* Colors - Light Theme (Warm Neutral) */
+  --bg-color: #FAF7F2;
+  --surface-color: #FFFFFF;
+  --surface-hover: #F5F3EC;
+  --surface-border: #E8E6E1;
   
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
+  --text-primary: #33302C;
+  --text-secondary: #7A756D;
   
-  --accent-color: #8b5cf6;
-  --accent-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
-  --accent-hover: #7c3aed;
+  --accent-color: #C97D5D;
+  --accent-gradient: linear-gradient(135deg, #C97D5D, #B08968);
+  --accent-hover: #B0694A;
+  --accent-bg: rgba(201, 125, 93, 0.12);
+  --accent-border: rgba(201, 125, 93, 0.2);
+  --accent-text: #A85A3D;
   
-  --success: #10b981;
-  --warning: #f59e0b;
-  --danger: #ef4444;
+  --success: #8A8B5C; /* Muted Olive */
+  --warning: #B08968; /* Soft Camel */
+  --danger: #C97D5D;
 
   /* Typography */
   --font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -27,10 +30,10 @@
   --font-size-3xl: 2rem;
   
   /* Shadows & Blur */
-  --glass-blur: blur(12px);
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --glass-blur: blur(8px);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
   
   /* Spacing */
   --spacing-1: 0.25rem;
@@ -43,15 +46,30 @@
   --spacing-12: 3rem;
   
   /* Border Radius */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
   --radius-2xl: 1.5rem;
   --radius-full: 9999px;
   
   /* Layout */
   --max-width: 480px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #262422; /* Warm Charcoal */
+    --surface-color: #33302C; /* Deep Brown/Charcoal */
+    --surface-hover: #3E3B37;
+    --surface-border: #4A4641;
+    
+    --text-primary: #FDFBF7;
+    --text-secondary: #B0A9A2;
+    
+    --accent-bg: rgba(201, 125, 93, 0.2);
+    --accent-text: #E59F82;
+  }
 }
 
 /* Reset */
@@ -131,14 +149,14 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
 }
 
 .btn-primary {
-  background: var(--accent-gradient);
-  color: white;
-  box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.39);
+  background: var(--accent-bg);
+  color: var(--accent-text);
+  box-shadow: none;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px 0 rgba(139, 92, 246, 0.5);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-primary:active {
@@ -184,25 +202,26 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(15, 23, 42, 0.8);
+  background: var(--bg-color);
+  opacity: 0.95;
   backdrop-filter: blur(8px);
 }
 
 /* MBTI Banner */
 .mbti-banner {
   margin: 0 var(--spacing-4) var(--spacing-6);
-  background: linear-gradient(135deg, #1e293b, #0f172a);
+  background: var(--surface-color);
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  border: 1px solid var(--surface-border);
 }
 .mbti-banner::before {
   content: '';
   position: absolute;
   top: -50%; left: -50%;
   width: 200%; height: 200%;
-  background: radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--accent-bg) 0%, transparent 70%);
   animation: rotateBg 10s linear infinite;
 }
 @keyframes rotateBg {
@@ -281,11 +300,12 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
   flex-wrap: wrap;
 }
 .tag {
-  background: rgba(255,255,255,0.1);
+  background: var(--surface-hover);
   padding: 2px 8px;
   border-radius: var(--radius-full);
   font-size: var(--font-size-xs);
   color: var(--text-secondary);
+  border: 1px solid var(--surface-border);
 }
 
 /* Ranking List */
@@ -375,8 +395,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
   width: 40px;
   height: 40px;
   border-radius: var(--radius-md);
-  background: rgba(139, 92, 246, 0.1);
-  color: var(--accent-color);
+  background: var(--accent-bg);
+  color: var(--accent-text);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -413,8 +433,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
   align-self: flex-end;
   border-bottom-left-radius: var(--radius-xl);
   border-bottom-right-radius: 4px;
-  background: rgba(139, 92, 246, 0.15);
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
 }
 
 /* Attractions */
