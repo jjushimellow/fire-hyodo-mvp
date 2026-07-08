@@ -70,9 +70,13 @@ const renderStars = (level) => {
     return `<span class="difficulty-stars">${stars}</span>`;
 };
 
+// Current Navigation State
+let currentNav = 'home';
+
 // Initialization
 document.addEventListener('DOMContentLoaded', () => {
     renderHome();
+    setupNavigation();
 });
 
 // Render Home Page
@@ -222,4 +226,69 @@ function goHome() {
     window.scrollTo(0, 0);
     document.getElementById('detail-page').classList.remove('active');
     document.getElementById('home-page').classList.add('active');
+    setActiveNav('home');
+}
+
+// Setup Navigation
+function setupNavigation() {
+    // Keyboard/Click event listeners for nav items
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const navType = this.getAttribute('data-nav');
+            navigateTo(navType);
+        });
+    });
+    
+    // Set initial active nav
+    setActiveNav('home');
+}
+
+// Navigate to section
+function navigateTo(navType) {
+    currentNav = navType;
+    setActiveNav(navType);
+    window.scrollTo(0, 0);
+    
+    switch(navType) {
+        case 'home':
+            document.getElementById('home-page').classList.add('active');
+            document.getElementById('detail-page').classList.remove('active');
+            break;
+        case 'community':
+            document.getElementById('home-page').classList.add('active');
+            document.getElementById('detail-page').classList.remove('active');
+            showComingSoon('Community');
+            break;
+        case 'search':
+            document.getElementById('home-page').classList.add('active');
+            document.getElementById('detail-page').classList.remove('active');
+            showComingSoon('Search');
+            break;
+        case 'mypage':
+            document.getElementById('home-page').classList.add('active');
+            document.getElementById('detail-page').classList.remove('active');
+            showComingSoon('My Page');
+            break;
+        default:
+            break;
+    }
+}
+
+// Set Active Navigation Item
+function setActiveNav(navType) {
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        item.classList.remove('active');
+        if(item.getAttribute('data-nav') === navType) {
+            item.classList.add('active');
+        }
+    });
+}
+
+// Show Coming Soon Message
+function showComingSoon(feature) {
+    const homeContent = document.getElementById('home-page');
+    homeContent.classList.add('active');
+    alert(`🚀 ${feature} 기능은 준비 중입니다!\n곧 더 멋진 기능으로 찾아올게요.`);
 }
