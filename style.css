@@ -280,16 +280,20 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
   margin-bottom: var(--spacing-4);
 }
 
+.carousel-container:hover .carousel-btn {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* Carousel Navigation Buttons */
 .carousel-btn {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   z-index: 5;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: var(--surface-color);
+  background: rgba(255, 255, 255, 0.95);
   border: 1px solid var(--surface-border);
   color: var(--text-primary);
   display: flex;
@@ -298,12 +302,24 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
   cursor: pointer;
   transition: all 0.2s;
   box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-50%);
+}
+
+.carousel-btn-prev {
+  left: 16px;
+}
+
+.carousel-btn-next {
+  right: 16px;
 }
 
 .carousel-btn:hover {
   background: var(--accent-bg);
   color: var(--accent-color);
   border-color: var(--accent-color);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .carousel-btn:active {
@@ -311,7 +327,19 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
 }
 
 .carousel-btn .material-icons {
-  font-size: 20px;
+  font-size: 18px;
+}
+
+/* Mobile: Always show buttons */
+@media (max-width: 768px) {
+  .carousel-btn {
+    opacity: 0.8;
+    visibility: visible;
+  }
+  
+  .carousel-container:hover .carousel-btn {
+    opacity: 1;
+  }
 }
 
 .country-card {
