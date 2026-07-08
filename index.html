@@ -20,13 +20,18 @@
 
             <!-- Recommended Section -->
             <div class="section-title" style="margin-top: var(--spacing-4);">
-                <div style="display: flex; align-items: center; gap: 8px;">
-                    <h2 class="text-lg">추천 여행지 🐢</h2>
-                    <span class="material-icons" style="color: var(--accent-color); font-size: 20px;">arrow_forward</span>
-                </div>
+                <h2 class="text-lg">추천 여행지 🐢</h2>
             </div>
-            <div class="horizontal-scroll" id="recommended-container">
-                <!-- Cards will be injected by JS -->
+            <div class="carousel-container">
+                <button class="carousel-btn carousel-btn-prev" onclick="scrollCarousel('recommended-container', -1)" style="left: 0;">
+                    <span class="material-icons">chevron_left</span>
+                </button>
+                <div class="horizontal-scroll" id="recommended-container">
+                    <!-- Cards will be injected by JS -->
+                </div>
+                <button class="carousel-btn carousel-btn-next" onclick="scrollCarousel('recommended-container', 1)" style="right: 0;">
+                    <span class="material-icons">chevron_right</span>
+                </button>
             </div>
 
             <!-- MBTI Banner -->
@@ -42,10 +47,7 @@
 
             <!-- Popular Ranking Section -->
             <div class="section-title" style="margin-top: var(--spacing-6);">
-                <div style="display: flex; align-items: center; gap: 8px;">
-                    <h2 class="text-lg">현재 가장 인기있는 효도 여행 🏆</h2>
-                    <span class="material-icons" style="color: var(--accent-color); font-size: 20px;">arrow_forward</span>
-                </div>
+                <h2 class="text-lg">현재 가장 인기있는 효도 여행 🏆</h2>
             </div>
             <div class="ranking-list" id="ranking-container">
                 <!-- Ranking items will be injected by JS -->

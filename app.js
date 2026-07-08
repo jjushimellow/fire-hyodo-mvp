@@ -292,3 +292,17 @@ function showComingSoon(feature) {
     homeContent.classList.add('active');
     alert(`🚀 ${feature} 기능은 준비 중입니다!\n곧 더 멋진 기능으로 찾아올게요.`);
 }
+
+// Scroll Carousel
+function scrollCarousel(containerId, direction) {
+    const container = document.getElementById(containerId);
+    const scrollAmount = 260; // Approximate card width + gap
+    
+    if (direction === -1) {
+        // Scroll left
+        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else if (direction === 1) {
+        // Scroll right
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+}
