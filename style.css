@@ -278,7 +278,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
   position: relative;
   display: flex;
   align-items: center;
-  padding-left: 60px;
+  margin-left: var(--spacing-4);
+  margin-right: var(--spacing-4);
 }
 
 .carousel-container:hover .carousel-btn {
