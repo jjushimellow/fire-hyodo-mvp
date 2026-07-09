@@ -261,7 +261,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
 .horizontal-scroll {
   display: flex;
   overflow-x: auto;
-  padding: 0 var(--spacing-4) var(--spacing-4) 80px;
+  padding: 0 var(--spacing-4) var(--spacing-4) 120px !important;
   gap: var(--spacing-4);
   scroll-snap-type: x mandatory;
   scrollbar-width: none; /* Hide scrollbar Firefox */
