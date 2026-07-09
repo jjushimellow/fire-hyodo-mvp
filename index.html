@@ -133,7 +133,38 @@
             </div>
         </div>
 
-        <!-- Bottom Navigation Bar -->
+        <!-- Community Page -->
+        <div id="community-page" class="page">
+            <!-- Header -->
+            <header class="header">
+                <h1 class="text-xl font-bold" style="background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">💬 Community</h1>
+            </header>
+
+            <!-- Topics Section -->
+            <div style="padding: var(--spacing-4); padding-bottom: 200px;">
+                <h2 class="text-lg font-bold" style="margin-bottom: var(--spacing-4);">효도 여행 토픽</h2>
+                
+                <div class="topic-grid" id="topic-container">
+                    <!-- Topic cards will be injected by JS -->
+                </div>
+
+                <!-- Pro Recommendation Banner -->
+                <div class="glass-card" style="margin-top: var(--spacing-8); padding: var(--spacing-5); text-align: center; background: linear-gradient(135deg, #FFE5D9 0%, #FFF0E5 100%);">
+                    <div style="font-size: 2rem; margin-bottom: var(--spacing-2);">⭐</div>
+                    <h3 class="text-md font-bold" style="color: var(--accent-color); margin-bottom: var(--spacing-2);">프로에게 추천 받기!</h3>
+                    <p class="text-sm text-secondary" style="margin-bottom: var(--spacing-3);">여행 유튜버들의 추천</p>
+                    <button class="btn btn-primary" style="width: 100%;">추천 받기</button>
+                </div>
+
+                <!-- Hana Tour Banner -->
+                <div class="glass-card" style="margin-top: var(--spacing-4); padding: var(--spacing-5); text-align: center; background: linear-gradient(135deg, #E8F4F8 0%, #F0F8FB 100%);">
+                    <div style="font-size: 2rem; margin-bottom: var(--spacing-2);">🏢</div>
+                    <h3 class="text-md font-bold" style="color: var(--accent-color); margin-bottom: var(--spacing-2);">패키지 여행</h3>
+                    <p class="text-sm text-secondary" style="margin-bottom: var(--spacing-3);">하나투어와 함께 안전한 여행</p>
+                    <button class="btn btn-primary" style="width: 100%;">하나투어 보기</button>
+                </div>
+            </div>
+        </div>
         <nav class="bottom-nav">
             <button class="nav-item active" data-nav="home" onclick="navigateTo('home')">
                 <span class="material-icons">home</span>

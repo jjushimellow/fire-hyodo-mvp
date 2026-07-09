@@ -1,5 +1,62 @@
-// Mock Data
-const countries = [
+// Mock Data - Topics
+const topics = [
+    {
+        id: 'topic-001',
+        title: '까다로운 엄마 입맛',
+        description: '엄마 입맛에 맞는 음식을 찾기 힘든 부모님을 위한 여행 후기',
+        image: 'https://picsum.photos/id/21/200/200',
+        members: 1240,
+        posts: 356,
+        emoji: '👩‍🍳'
+    },
+    {
+        id: 'topic-002',
+        title: '60대 부모님 장기 유럽 여행',
+        description: '3주 이상의 유럽 여행 경험담 및 팁 공유',
+        image: 'https://picsum.photos/id/23/200/200',
+        members: 892,
+        posts: 234,
+        emoji: '🏛️'
+    },
+    {
+        id: 'topic-003',
+        title: '산티아고 순례 부모님이랑',
+        description: '산티아고 데 콤포스텔라 순례 경험 공유',
+        image: 'https://picsum.photos/id/24/200/200',
+        members: 456,
+        posts: 128,
+        emoji: '🚶'
+    },
+    {
+        id: 'topic-004',
+        title: '별거 없구만 들은 피해자 방',
+        description: '"별거 없다"는 부모님말씀 후 낭패본 여행지들',
+        image: 'https://picsum.photos/id/25/200/200',
+        members: 2105,
+        posts: 567,
+        emoji: '🤷'
+    },
+    {
+        id: 'topic-005',
+        title: '휠체어 접근성 여행지',
+        description: '휠체어로 다니기 편한 여행지 정보 공유',
+        image: 'https://picsum.photos/id/26/200/200',
+        members: 634,
+        posts: 189,
+        emoji: '♿'
+    },
+    {
+        id: 'topic-006',
+        title: '1박2일 근처 효도 여행',
+        description: '주말에 다녀올 수 있는 1박2일 여행지',
+        image: 'https://picsum.photos/id/27/200/200',
+        members: 1876,
+        posts: 445,
+        emoji: '🏨'
+    }
+];
+
+// Mock Data - Countries
     {
         id: 'country-001',
         name: '다낭',
@@ -254,20 +311,24 @@ function navigateTo(navType) {
         case 'home':
             document.getElementById('home-page').classList.add('active');
             document.getElementById('detail-page').classList.remove('active');
+            document.getElementById('community-page').classList.remove('active');
             break;
         case 'community':
-            document.getElementById('home-page').classList.add('active');
+            document.getElementById('home-page').classList.remove('active');
             document.getElementById('detail-page').classList.remove('active');
-            showComingSoon('Community');
+            document.getElementById('community-page').classList.add('active');
+            renderCommunity();
             break;
         case 'search':
             document.getElementById('home-page').classList.add('active');
             document.getElementById('detail-page').classList.remove('active');
+            document.getElementById('community-page').classList.remove('active');
             showComingSoon('Search');
             break;
         case 'mypage':
             document.getElementById('home-page').classList.add('active');
             document.getElementById('detail-page').classList.remove('active');
+            document.getElementById('community-page').classList.remove('active');
             showComingSoon('My Page');
             break;
         default:
@@ -305,4 +366,37 @@ function scrollCarousel(containerId, direction) {
         // Scroll right
         container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
+}
+
+// Render Community Page
+function renderCommunity() {
+    const topicContainer = document.getElementById('topic-container');
+    topicContainer.innerHTML = '';
+
+    topics.forEach(topic => {
+        const card = document.createElement('div');
+        card.className = 'topic-card';
+        card.onclick = () => {
+            alert(`${topic.title} 토픽으로 들어가기\n(추후 구현 예정)`);
+        };
+        
+        card.innerHTML = `
+            <img src="${topic.image}" alt="${topic.title}" class="topic-image">
+            <div class="topic-content">
+                <div>
+                    <h3 class="topic-title">${topic.emoji} ${topic.title}</h3>
+                    <p class="topic-description">${topic.description}</p>
+                </div>
+                <div class="topic-meta">
+                    <div class="topic-meta-item">
+                        <span>👥 ${topic.members.toLocaleString()}</span>
+                    </div>
+                    <div class="topic-meta-item">
+                        <span>📝 ${topic.posts.toLocaleString()}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+        topicContainer.appendChild(card);
+    });
 }
