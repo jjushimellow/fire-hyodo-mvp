@@ -323,4 +323,94 @@ body {
 }
 
 .topic-meta-item {
-  display: flex
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Mobile: Always show buttons */
+@media (max-width: 768px) {
+  .carousel-btn {
+    opacity: 0.8;
+    visibility: visible;
+  }
+  
+  .carousel-container:hover .carousel-btn {
+    opacity: 1;
+  }
+} /* 1단계: 누락되었던 닫는 중괄호 } 만 깔끔하게 추가 */
+
+/* Community Page Specifics */
+.community-header-tabs {
+  display: flex;
+  background: var(--surface-color);
+  border-bottom: 1px solid var(--surface-border);
+  position: sticky;
+  top: 60px;
+  z-index: 9;
+}
+
+.tab-btn {
+  flex: 1;
+  text-align: center;
+  padding: var(--spacing-3) 0;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  position: relative;
+}
+
+.tab-btn.active {
+  color: var(--accent-text);
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-color);
+}
+
+/* Search Page Design */
+.search-bar-container {
+  padding: var(--spacing-4);
+  background: var(--surface-color);
+  border-bottom: 1px solid var(--surface-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: var(--spacing-3) var(--spacing-4) var(--spacing-3) 44px;
+  background: var(--bg-color);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-full);
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.2s;
+}
+
+.search-input:focus {
+  border-color: var(--accent-color);
+  background: var(--surface-color);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.search-icon
