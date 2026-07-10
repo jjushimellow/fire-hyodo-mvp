@@ -56,7 +56,135 @@ const topics = [
     }
 ];
 
-// Mock Data - Countries
+// Mock Data - Search Contents
+const searchContents = [
+    // YouTube Videos
+    {
+        id: 'search-001',
+        type: 'youtube',
+        title: '60대 부모님과 다낭 4박5일 완벽 가이드',
+        channel: '보보TV',
+        views: '245K',
+        likes: '8.2K',
+        thumbnail: 'https://picsum.photos/id/100/120/90',
+        date: '2주 전'
+    },
+    {
+        id: 'search-002',
+        type: 'youtube',
+        title: '부모님이 좋아할 수밖에 없는 일본 여행지 BEST 5',
+        channel: '여행하는 딸',
+        views: '156K',
+        likes: '5.1K',
+        thumbnail: 'https://picsum.photos/id/101/120/90',
+        date: '3주 전'
+    },
+    {
+        id: 'search-003',
+        type: 'youtube',
+        title: '휠체어 여행도 가능한 동남아 여행지',
+        channel: '접근성 여행자',
+        views: '89K',
+        likes: '3.4K',
+        thumbnail: 'https://picsum.photos/id/102/120/90',
+        date: '1개월 전'
+    },
+    {
+        id: 'search-004',
+        type: 'youtube',
+        title: '70대 부모님 산티아고 순례 후기 (감동주의)',
+        channel: '효도 프로젝트',
+        views: '512K',
+        likes: '15.2K',
+        thumbnail: 'https://picsum.photos/id/103/120/90',
+        date: '1개월 전'
+    },
+    {
+        id: 'search-005',
+        type: 'youtube',
+        title: '부모님 식도락 여행 - 한식당 많은 해외도시 TOP 10',
+        channel: '맛있는 효도',
+        views: '328K',
+        likes: '9.8K',
+        thumbnail: 'https://picsum.photos/id/104/120/90',
+        date: '2개월 전'
+    },
+    // Naver Blog
+    {
+        id: 'search-006',
+        type: 'blog',
+        title: '60대 부모님과 방콕 여행, 일정표부터 음식 팁까지 완벽 정리',
+        channel: '효자의 일상',
+        views: '2.5K',
+        likes: '156',
+        thumbnail: 'https://picsum.photos/id/105/120/90',
+        date: '5일 전'
+    },
+    {
+        id: 'search-007',
+        type: 'blog',
+        title: '까다로운 엄마도 만족한 싱가포르 여행, 이렇게 준비했어요',
+        channel: '여행하는 엄마',
+        views: '1.8K',
+        likes: '124',
+        thumbnail: 'https://picsum.photos/id/106/120/90',
+        date: '1주 전'
+    },
+    {
+        id: 'search-008',
+        type: 'blog',
+        title: '부모님 나이대별 여행지 추천 + 사전 준비물 체크리스트',
+        channel: '여행 플래너 김',
+        views: '3.2K',
+        likes: '201',
+        thumbnail: 'https://picsum.photos/id/107/120/90',
+        date: '3일 전'
+    },
+    {
+        id: 'search-009',
+        type: 'blog',
+        title: '인도네시아 발리 - 어르신도 편하게 다닐 수 있는 루트',
+        channel: '발리 여행 일지',
+        views: '1.2K',
+        likes: '87',
+        thumbnail: 'https://picsum.photos/id/108/120/90',
+        date: '2주 전'
+    },
+    // Brunch
+    {
+        id: 'search-010',
+        type: 'brunch',
+        title: '효도의 의미를 다시 생각하게 만든 부모님과의 캄보디아 여행',
+        channel: '감성 여행가',
+        views: '892',
+        likes: '234',
+        thumbnail: 'https://picsum.photos/id/109/120/90',
+        date: '1주 전'
+    },
+    {
+        id: 'search-011',
+        type: 'brunch',
+        title: '여행사 직원이 추천하는 50-70대 부모님 여행지 선택법',
+        channel: '여행사 인사이트',
+        views: '1.5K',
+        likes: '456',
+        thumbnail: 'https://picsum.photos/id/110/120/90',
+        date: '10일 전'
+    },
+    {
+        id: 'search-012',
+        type: 'brunch',
+        title: '부모님 나이대 여행 시 꼭 체크해야 할 5가지',
+        channel: '의료 여행 전문가',
+        views: '645',
+        likes: '178',
+        thumbnail: 'https://picsum.photos/id/111/120/90',
+        date: '3주 전'
+    }
+];
+
+// Current search filter
+let currentSearchFilter = 'all';
 const countries = [
     {
         id: 'country-001',
@@ -321,10 +449,11 @@ function navigateTo(navType) {
             renderCommunity();
             break;
         case 'search':
-            document.getElementById('home-page').classList.add('active');
+            document.getElementById('home-page').classList.remove('active');
             document.getElementById('detail-page').classList.remove('active');
             document.getElementById('community-page').classList.remove('active');
-            showComingSoon('Search');
+            document.getElementById('search-page').classList.add('active');
+            renderSearch();
             break;
         case 'mypage':
             document.getElementById('home-page').classList.add('active');
@@ -400,4 +529,71 @@ function renderCommunity() {
         `;
         topicContainer.appendChild(card);
     });
+}
+
+// Render Search Page
+function renderSearch() {
+    const searchResults = document.getElementById('search-results');
+    searchResults.innerHTML = '';
+    
+    // Filter by current filter
+    let results = searchContents;
+    if (currentSearchFilter !== 'all') {
+        results = searchContents.filter(item => item.type === currentSearchFilter);
+    }
+    
+    results.forEach(result => {
+        const card = document.createElement('div');
+        card.className = 'search-result-card';
+        card.onclick = () => {
+            alert(`${result.title}\n작성자: ${result.channel}\n(클릭 시 상세 페이지로 이동 예정)`);
+        };
+        
+        let badgeText = '';
+        if (result.type === 'youtube') badgeText = '📺 유튜브';
+        else if (result.type === 'blog') badgeText = '📝 블로그';
+        else if (result.type === 'brunch') badgeText = '📖 브런치';
+        
+        card.innerHTML = `
+            <img src="${result.thumbnail}" alt="${result.title}" class="search-result-thumbnail">
+            <div class="search-result-content">
+                <div class="search-result-header">
+                    <div style="flex: 1;">
+                        <div class="search-result-title">${result.title}</div>
+                    </div>
+                    <span class="search-result-badge ${result.type}">${badgeText}</span>
+                </div>
+                <div class="search-result-meta">
+                    <div class="search-result-meta-item">
+                        <span class="search-result-channel">${result.channel}</span>
+                    </div>
+                    <span>•</span>
+                    <div class="search-result-meta-item">
+                        👁️ ${result.views}
+                    </div>
+                    <div class="search-result-meta-item">
+                        👍 ${result.likes}
+                    </div>
+                    <div class="search-result-meta-item">
+                        ${result.date}
+                    </div>
+                </div>
+            </div>
+        `;
+        searchResults.appendChild(card);
+    });
+}
+
+// Filter Search Results
+function filterSearch(type) {
+    currentSearchFilter = type;
+    
+    // Update active filter button
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.querySelector(`[data-filter="${type}"]`).classList.add('active');
+    
+    // Re-render results
+    renderSearch();
 }

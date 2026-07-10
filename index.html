@@ -165,6 +165,44 @@
                 </div>
             </div>
         </div>
+
+        <!-- Search Page -->
+        <div id="search-page" class="page">
+            <!-- Search Header -->
+            <header class="search-header">
+                <div class="search-input-container">
+                    <span class="material-icons search-icon">search</span>
+                    <input type="text" id="search-input" class="search-input" placeholder="효도 여행지, 부모님 여행 팁..." />
+                </div>
+            </header>
+
+            <!-- Filter Tabs -->
+            <div class="search-filters">
+                <button class="filter-btn active" data-filter="all" onclick="filterSearch('all')">
+                    전체
+                </button>
+                <button class="filter-btn" data-filter="youtube" onclick="filterSearch('youtube')">
+                    <span class="material-icons" style="font-size: 18px;">video_library</span>
+                    유튜브
+                </button>
+                <button class="filter-btn" data-filter="blog" onclick="filterSearch('blog')">
+                    <span class="material-icons" style="font-size: 18px;">article</span>
+                    블로그
+                </button>
+                <button class="filter-btn" data-filter="brunch" onclick="filterSearch('brunch')">
+                    <span class="material-icons" style="font-size: 18px;">menu_book</span>
+                    브런치
+                </button>
+            </div>
+
+            <!-- Search Results -->
+            <div class="search-content">
+                <h3 class="text-md font-bold" style="padding: var(--spacing-4); padding-bottom: 0;">현재 인기 콘텐츠</h3>
+                <div class="search-results" id="search-results">
+                    <!-- Results will be injected by JS -->
+                </div>
+            </div>
+        </div>
         <nav class="bottom-nav">
             <button class="nav-item active" data-nav="home" onclick="navigateTo('home')">
                 <span class="material-icons">home</span>
