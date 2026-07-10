@@ -597,3 +597,25 @@ function filterSearch(type) {
     // Re-render results
     renderSearch();
 }
+// 마이페이지 데이터
+const mySavedPlaces = [
+    { title: '제주도 귤밭', img: 'https://picsum.photos/id/10/200/200' },
+    { title: '경주 한옥마을', img: 'https://picsum.photos/id/11/200/200' },
+    { title: '강릉 바다', img: 'https://picsum.photos/id/12/200/200' },
+    { title: '부산 감천마을', img: 'https://picsum.photos/id/13/200/200' }
+];
+
+function renderMyPage() {
+    const list = document.getElementById('saved-places-list');
+    if (!list) return;
+    
+    list.innerHTML = mySavedPlaces.map(place => `
+        <div class="attraction-card">
+            <img src="${place.img}" class="attraction-img">
+            <div class="attraction-name">${place.title}</div>
+        </div>
+    `).join('');
+}
+
+// 페이지 로드 시 실행
+renderMyPage();
