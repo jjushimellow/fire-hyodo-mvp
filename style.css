@@ -319,3 +319,8 @@ body {
   gap: var(--spacing-3);
   color: var(--text-secondary);
   font-size: var(--font-size-xs);
+  margin-top: var(--spacing-1);
+}
+
+.topic-meta-item {
+  display: flex
