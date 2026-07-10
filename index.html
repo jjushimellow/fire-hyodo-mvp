@@ -203,18 +203,27 @@
                 </div>
             </div>
         </div>
-        <div id="mypage-page" class="page">
+        <!-- Search for <div id="mypage-page" class="page"> in your index.html and replace that section with this: -->
+<div id="mypage-page" class="page">
     <header class="header">
         <h1 class="text-xl font-bold">마이페이지</h1>
     </header>
     
     <div style="padding: var(--spacing-4);">
-        <div class="glass-card" style="display: flex; align-items: center; gap: var(--spacing-4); margin-bottom: var(--spacing-6);">
+        <!-- Profile Card -->
+        <div class="glass-card" style="display: flex; align-items: center; gap: var(--spacing-4); margin-bottom: var(--spacing-4);">
             <div style="font-size: 40px; background: var(--surface-hover); width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">🦁</div>
             <div>
                 <h2 class="text-xl font-bold">나는야불효녀</h2>
                 <p class="text-sm text-secondary">Level 1</p>
             </div>
+        </div>
+        <!-- NEW: Our Family Plans Button Container -->
+        <div style="margin-bottom: var(--spacing-6);">
+            <button class="btn btn-primary" onclick="openFamilyPlans()" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, #FFE5D9 0%, #C97D5D 100%); color: white; padding: var(--spacing-4); border-radius: var(--radius-xl); box-shadow: var(--shadow-md);">
+                <span style="font-size: 20px;">📋👨‍👩‍👧‍👦</span>
+                <span>우리 가족 계획 세우기</span>
+            </button>
         </div>
 
         <h3 class="text-md font-bold" style="margin-bottom: var(--spacing-2);">History</h3>
@@ -225,7 +234,8 @@
             
         <h3 class="text-md font-bold" style="margin-bottom: var(--spacing-3);">내 저장 장소</h3>
         <div id="saved-places-list" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-3);">
-            </div>
+            <!-- Saved places injected by JS -->
+        </div>
     </div>
 </div>
         <nav class="bottom-nav">
