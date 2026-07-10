@@ -609,3 +609,7 @@ function renderMyPage() {
         </div>
     `).join('');
 }
+// Add this to handle the family plan button click
+function openFamilyPlans() {
+    alert("✨ 📋👨‍👩‍👧‍👦 우리 가족 계획 기능 준비 중! ✨\n\n부모님 맞춤형 여행 일정표와 짐 싸기 체크리스트를 만들 수 있는 공간이 곧 찾아옵니다!");
+}
