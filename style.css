@@ -461,11 +461,12 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
 }
 
 .search-result-thumbnail {
-  width: 120px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   flex-shrink: 0;
   object-fit: cover;
   background: var(--surface-border);
+  border-radius: 4px;
 }
 
 .search-result-content {
