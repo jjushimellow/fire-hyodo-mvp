@@ -183,6 +183,14 @@ const searchContents = [
     }
 ];
 
+// 마이페이지 데이터
+const mySavedPlaces = [
+    { title: '제주도 귤밭', img: 'https://picsum.photos/id/10/200/200' },
+    { title: '경주 한옥마을', img: 'https://picsum.photos/id/11/200/200' },
+    { title: '강릉 바다', img: 'https://picsum.photos/id/12/200/200' },
+    { title: '부산 감천마을', img: 'https://picsum.photos/id/13/200/200' }
+];
+
 // Current search filter
 let currentSearchFilter = 'all';
 const countries = [
@@ -396,6 +404,9 @@ function openDetail(countryId) {
     // Page Transition
     window.scrollTo(0, 0);
     document.getElementById('home-page').classList.remove('active');
+    document.getElementById('community-page').classList.remove('active');
+    document.getElementById('search-page').classList.remove('active');
+    document.getElementById('mypage-page').classList.remove('active');
     document.getElementById('detail-page').classList.add('active');
 }
 
@@ -417,7 +428,6 @@ function goHome() {
 
 // Setup Navigation
 function setupNavigation() {
-    // Keyboard/Click event listeners for nav items
     const navItems = document.querySelectorAll('.nav-item');
     navItems.forEach(item => {
         item.addEventListener('click', function() {
@@ -430,36 +440,37 @@ function setupNavigation() {
     setActiveNav('home');
 }
 
+// Clear all active page views
+function clearAllPages() {
+    document.getElementById('home-page').classList.remove('active');
+    document.getElementById('detail-page').classList.remove('active');
+    document.getElementById('community-page').classList.remove('active');
+    document.getElementById('search-page').classList.remove('active');
+    document.getElementById('mypage-page').classList.remove('active');
+}
+
 // Navigate to section
 function navigateTo(navType) {
     currentNav = navType;
     setActiveNav(navType);
     window.scrollTo(0, 0);
+    clearAllPages();
     
     switch(navType) {
         case 'home':
             document.getElementById('home-page').classList.add('active');
-            document.getElementById('detail-page').classList.remove('active');
-            document.getElementById('community-page').classList.remove('active');
             break;
         case 'community':
-            document.getElementById('home-page').classList.remove('active');
-            document.getElementById('detail-page').classList.remove('active');
             document.getElementById('community-page').classList.add('active');
             renderCommunity();
             break;
         case 'search':
-            document.getElementById('home-page').classList.remove('active');
-            document.getElementById('detail-page').classList.remove('active');
-            document.getElementById('community-page').classList.remove('active');
             document.getElementById('search-page').classList.add('active');
             renderSearch();
             break;
         case 'mypage':
-            document.getElementById('home-page').classList.add('active');
-            document.getElementById('detail-page').classList.remove('active');
-            document.getElementById('community-page').classList.remove('active');
-            showComingSoon('My Page');
+            document.getElementById('mypage-page').classList.add('active');
+            renderMyPage();
             break;
         default:
             break;
@@ -477,23 +488,14 @@ function setActiveNav(navType) {
     });
 }
 
-// Show Coming Soon Message
-function showComingSoon(feature) {
-    const homeContent = document.getElementById('home-page');
-    homeContent.classList.add('active');
-    alert(`🚀 ${feature} 기능은 준비 중입니다!\n곧 더 멋진 기능으로 찾아올게요.`);
-}
-
 // Scroll Carousel
 function scrollCarousel(containerId, direction) {
     const container = document.getElementById(containerId);
     const scrollAmount = 260; // Approximate card width + gap
     
     if (direction === -1) {
-        // Scroll left
         container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
     } else if (direction === 1) {
-        // Scroll right
         container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
 }
@@ -536,7 +538,6 @@ function renderSearch() {
     const searchResults = document.getElementById('search-results');
     searchResults.innerHTML = '';
     
-    // Filter by current filter
     let results = searchContents;
     if (currentSearchFilter !== 'all') {
         results = searchContents.filter(item => item.type === currentSearchFilter);
@@ -588,23 +589,15 @@ function renderSearch() {
 function filterSearch(type) {
     currentSearchFilter = type;
     
-    // Update active filter button
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.classList.remove('active');
     });
     document.querySelector(`[data-filter="${type}"]`).classList.add('active');
     
-    // Re-render results
     renderSearch();
 }
-// 마이페이지 데이터
-const mySavedPlaces = [
-    { title: '제주도 귤밭', img: 'https://picsum.photos/id/10/200/200' },
-    { title: '경주 한옥마을', img: 'https://picsum.photos/id/11/200/200' },
-    { title: '강릉 바다', img: 'https://picsum.photos/id/12/200/200' },
-    { title: '부산 감천마을', img: 'https://picsum.photos/id/13/200/200' }
-];
 
+// Render My Page Saved Places Elements
 function renderMyPage() {
     const list = document.getElementById('saved-places-list');
     if (!list) return;
@@ -616,6 +609,3 @@ function renderMyPage() {
         </div>
     `).join('');
 }
-
-// 페이지 로드 시 실행
-renderMyPage();
